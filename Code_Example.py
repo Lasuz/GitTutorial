@@ -41,16 +41,16 @@ resized_image = zoom(cropped_image,0.5)
 #--------------------------------
 
 (x_center, y_center, z_center)=resized_image.shape
-print((x_center, y_center, z_center))
+print(x_center, y_center, z_center)
 h= 10
 
-roi = resized_image[x_center-h:x_center+h, y_center-h:y_center+h,z_center-h,z_center+h]
+roi = resized_image[x_center-h:x_center+h, y_center-h:y_center+h,z_center-h:z_center+h]
 
 #--------------------------------
 # 5. Calculate mean signal intensity across the ROI for each slice
 #--------------------------------
 
-mean_intensity = np.mean(roi)
+mean_intensity = np.mean(roi,axis=(0,1))
 
 #--------------------------------
 print('Mean Intensity: ', mean_intensity)
@@ -61,10 +61,11 @@ plt.plot(mean_intensity)
 plt.xlabel('Slice')
 plt.ylabel('Mean Signal Intensity')
 plt.title('Signal Intensity Across Slices in an ROI')
+plt.show()
 
 
 # Display the middle slice of the image
-mid_slice = data[:, :, data.shape[2] // 2]
+mid_slice = img_data_atlas[:, :, img_data_atlas.shape[2] // 2]
 plt.imshow(mid_slice.T, cmap='gray', origin='lower')
 plt.title('Middle Slice of an MRI Image')
 plt.show()
