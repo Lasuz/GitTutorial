@@ -11,13 +11,14 @@ from scipy.ndimage import zoom
 # Load nii image using nibabel using nib.load() and store in variable img_atals
 image_name = 'icbm_avg_152_t1_tal_lin_BE.nii'
 
-#img_atlas=nib.load(image_name)
+img_atlas=nib.load(image_name)
 
-#img_data_atlas = img_atlas.get_fdata()
+img_data_atlas = img_atlas.get_fdata()
+print(img_data_atlas.shape)
 
 #--------------------------------
 # 2. Print Dimensions of 
-#--------------------------------
+#------------------------------
 
 
 
@@ -26,7 +27,8 @@ image_name = 'icbm_avg_152_t1_tal_lin_BE.nii'
 #--------------------------------
 # Crop the image by removing the outer 5 pixels
 
-#cropped_image = 
+
+cropped_image = img_data_atlas[100, 577, 50]
 
 #--------------------------------
 # 3. Resize the cropped to half its size zoom((input, zoom)
@@ -53,7 +55,7 @@ image_name = 'icbm_avg_152_t1_tal_lin_BE.nii'
 #mean_intensity = 
 
 #--------------------------------
-print('Mean Intensity: ', mean_intensity)
+#print('Mean Intensity: ', mean_intensity)
 
 
 '''
