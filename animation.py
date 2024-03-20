@@ -12,7 +12,7 @@ ax.set_yticks([])
 text = ax.text(0.5, 0.5, '', ha='center', va='center', fontsize=100, color='blue')
 
 # Change the figure background color
-fig.patch.set_facecolor('black')
+fig.patch.set_facecolor('g')
 
 # Change the axes background color
 ax.set_facecolor('yellow')
